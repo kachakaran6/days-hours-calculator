@@ -9,7 +9,12 @@ export default function Home() {
 
   const handleCalculate = () => {
     const currentDate = new Date();
-    const futureDate = new Date(currentDate.getTime() + hours * 60 * 60 * 1000);
+    const hoursNumber = Number(hours); // Convert to number
+    if (isNaN(hoursNumber)) return;
+
+    const futureDate = new Date(
+      currentDate.getTime() + hoursNumber * 60 * 60 * 1000
+    );
 
     const formattedDate = futureDate.toLocaleDateString();
     const formattedTime = futureDate.toLocaleTimeString();
